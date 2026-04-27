@@ -42,60 +42,6 @@ namespace WebAppTest
         protected global::System.Web.UI.WebControls.TextBox TextBoxLastName;
 
         /// <summary>
-        /// ButtonSearchFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonSearchFirstName;
-
-        /// <summary>
-        /// TextBoxFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxFirstName;
-
-        /// <summary>
-        /// TextBoxInsertFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxInsertFirstName;
-
-        /// <summary>
-        /// TextBoxInsertLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxInsertLastName;
-
-        /// <summary>
-        /// TextBoxInsertPersNr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxInsertPersNr;
-
-        /// <summary>
-        /// ButtonInsertPerson control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonInsertPerson;
-
-        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
