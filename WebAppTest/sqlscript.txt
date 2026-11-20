@@ -1,0 +1,63 @@
+﻿-- 1. OPPRETT DATABASEN
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'PhoneReg')
+BEGIN
+    CREATE DATABASE PhoneReg;
+END
+GO
+
+USE PhoneReg;
+GO
+
+-- 2. OPPRETT TABELLER
+CREATE TABLE dbo.City (
+    PostalCode INT PRIMARY KEY NOT NULL,
+    City NVARCHAR(MAX) NOT NULL
+);
+
+CREATE TABLE dbo.Person (
+    PId INT PRIMARY KEY NOT NULL,
+    FirstName NVARCHAR(MAX) NOT NULL,
+    LastName NVARCHAR(MAX) NOT NULL,
+    Address NCHAR(10) NOT NULL,
+    PostalCode INT NOT NULL,
+    CONSTRAINT FK_Person_City FOREIGN KEY (PostalCode) REFERENCES dbo.City(PostalCode)
+);
+
+CREATE TABLE dbo.PhoneNumber (
+    PhoneNumber INT NOT NULL,
+    Pid INT NOT NULL,
+    CONSTRAINT PK_PhoneNumber PRIMARY KEY (PhoneNumber, Pid),
+    CONSTRAINT FK_PhoneNumber_Person FOREIGN KEY (Pid) REFERENCES dbo.Person(PId)
+);
+GO
+
+-- 3. LEGG INN TESTDATA
+INSERT INTO dbo.City (PostalCode, City)
+VALUES 
+    (1607, N'Fredrikstad'),
+    (0150, N'Oslo');
+
+INSERT INTO dbo.Person (PId, FirstName, LastName, Address, PostalCode)
+VALUES 
+    (1, N'Ola', N'Nordmann', N'Storgata 1', 1607),
+    (2, N'Kari', N'Hansen', N'Karl Johan', 0150);
+
+INSERT INTO dbo.PhoneNumber (PhoneNumber, Pid)
+VALUES 
+    (90011222, 1),
+    (40055666, 1), -- Ola har to telefonnumre
+    (98877666, 2);
+GO
+
+-- 4. HENT UT KOMPLETT OVERSIKT (JOIN)
+SELECT 
+    p.PId,
+    p.FirstName,
+    p.LastName,
+    p.Address,
+    c.PostalCode,
+    c.City,
+    pn.PhoneNumber
+FROM dbo.Person p
+INNER JOIN dbo.City c ON p.PostalCode = c.PostalCode
+LEFT JOIN dbo.PhoneNumber pn ON p.PId = pn.Pid;
